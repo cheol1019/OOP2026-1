@@ -54,4 +54,4 @@ public class Homework1 {
             System.out.println("");
         }
     }
-}![Alt homework11](./images/homework1.jpg)
+}![Alt homework11](./images/homework1.png)
