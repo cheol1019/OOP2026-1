@@ -76,3 +76,23 @@ public class homework2 {
         System.out.println();
     }
 }![Alt homework11](./images/homework2.png)
+
+package homework;
+
+public class homework3 {
+    public static void main(String[] args) {
+        long[] fibo = new long[22];
+
+        fibo[1] = 1;
+        fibo[2] = 1;
+
+        for (int i = 3; i <= 21; i++) {
+            fibo[i] = fibo[i - 1] + fibo[i - 2];
+        }
+
+        for (int i = 1; i <= 20; i++) {
+            double ratio = (double) fibo[i + 1] / fibo[i];
+            System.out.printf("%d/%d = %.6f%n", fibo[i + 1], fibo[i], ratio);
+        }
+    }
+} ![Alt homework11](./images/homework3.png)
