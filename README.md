@@ -96,3 +96,18 @@ public class homework3 {
         }
     }
 } ![Alt homework11](./images/homework3.png)
+
+package homework;
+
+public class homework4 {
+    public static void main(String[] args) {
+        int i, j;
+
+        for (j = 1; j <= 9; j++) {
+            for (i = 1; i <= 9; i++) {
+                System.out.printf("%d*%d=%-2d\t", i, j, i * j);
+            }
+            System.out.println();
+        }
+    }
+} ![Alt homework11](./images/homework4.png)
