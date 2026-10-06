@@ -213,3 +213,41 @@ public class homework6 {
         }
     }
 } ![Alt homework11](./images/homework6.png)
+
+package homework;
+
+public class homework7 {
+    public static void main(String[] args) {
+        int data[] = new int[20];
+
+        for (int i = 0; i < 20; i++) {
+            data[i] = (int) (Math.random() * 100);
+        }
+
+        System.out.println("=== 정렬 전 (Original) ===");
+        for (int i = 0; i < 20; i++) {
+            System.out.print(data[i] + " ");
+        }
+        System.out.println("\n");
+
+        for (int i = 0; i < 20 - 1; i++) {
+            int minIndex = i; 
+
+            for (int j = i + 1; j < 20; j++) {
+                if (data[j] < data[minIndex]) {
+                    minIndex = j; 
+                }
+            }
+
+            int temp = data[i];
+            data[i] = data[minIndex];
+            data[minIndex] = temp;
+        }
+
+        System.out.println("=== 선택 정렬 후 (Sorted) ===");
+        for (int i = 0; i < 20; i++) {
+            System.out.print(data[i] + " ");
+        }
+        System.out.println();
+    }
+} ![Alt homework11](./images/homework7.png)
