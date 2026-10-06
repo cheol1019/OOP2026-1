@@ -251,3 +251,40 @@ public class homework7 {
         System.out.println();
     }
 } ![Alt homework11](./images/homework7.png)
+
+package homework;
+
+public class homework8 {
+    public static void main(String[] args) {
+        int students = 30;
+        int subjects = 4;
+
+        int[][] score = new int[students][subjects + 1];
+
+        for (int i = 0; i < students; i++) {
+            int sum = 0;
+            for (int j = 0; j < subjects; j++) {
+                score[i][j] = (int) (Math.random() * 101);
+                sum += score[i][j];
+            }
+            score[i][subjects] = sum;
+        }
+
+        System.out.printf("%-4s\t%-4s\t%-4s\t%-4s\t%-4s\t%-4s\t%-6s%n", 
+                          "번호", "국어", "영어", "수학", "과학", "총점", "평균");
+        System.out.println("---------------------------------------------------------");
+
+        for (int i = 0; i < students; i++) {
+            int studentNum = i + 1;
+            int kor = score[i][0];
+            int eng = score[i][1];
+            int math = score[i][2];
+            int sci = score[i][3];
+            int sum = score[i][4];
+            double avg = (double) sum / subjects;
+
+            System.out.printf("%-4d\t%-4d\t%-4d\t%-4d\t%-4d\t%-4d\t%-6.2f%n",
+                              studentNum, kor, eng, math, sci, sum, avg);
+        }
+    }
+} ![Alt homework11](./images/homework8.png)
