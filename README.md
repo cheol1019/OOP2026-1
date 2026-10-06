@@ -111,3 +111,37 @@ public class homework4 {
         }
     }
 } ![Alt homework11](./images/homework4.png)
+
+package homework;
+
+public class homework5 {
+    public static void main(String[] args) {
+        int terms = 20;
+
+        // 1. Gregory-Leibniz Series
+        double leibnizSum = 0.0;
+        System.out.println("=== 1. Gregory-Leibniz Series (최초 20항) ===");
+        for (int k = 0; k < terms; k++) {
+            double term = Math.pow(-1, k) / (2 * k + 1);
+            leibnizSum += term;
+            double currentPi = 4.0 * leibnizSum;
+            System.out.printf("k = %2d: PI ≈ %.10f%n", k + 1, currentPi);
+        }
+
+        System.out.println();
+
+        // 2. Madhava Series
+        double madhavaSum = 0.0;
+        double sqrt12 = Math.sqrt(12);
+        System.out.println("=== 2. Madhava Series (최초 20항) ===");
+        for (int k = 0; k < terms; k++) {
+            double term = Math.pow(-1, k) / ((2 * k + 1) * Math.pow(3, k));
+            madhavaSum += term;
+            double currentPi = sqrt12 * madhavaSum;
+            System.out.printf("k = %2d: PI ≈ %.10f%n", k + 1, currentPi);
+        }
+
+        System.out.println();
+        System.out.printf("실제 Math.PI 값: %.10f%n", Math.PI);
+    }
+} ![Alt homework11](./images/homework5.png)
