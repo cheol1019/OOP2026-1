@@ -55,3 +55,24 @@ public class Homework1 {
         }
     }
 }![Alt homework11](./images/homework1.png)
+
+
+package homework;
+
+public class homework2 {
+    public static void main(String[] args) {
+        int[] fibo = new int[20];
+
+        fibo[0] = 1;
+        fibo[1] = 1;
+
+        for (int i = 2; i < 20; i++) {
+            fibo[i] = fibo[i - 1] + fibo[i - 2];
+        }
+
+        for (int i = 0; i < 20; i++) {
+            System.out.print(fibo[i] + " ");
+        }
+        System.out.println();
+    }
+}![Alt homework11](./images/homework2.png)
