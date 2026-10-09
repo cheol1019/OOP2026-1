@@ -407,3 +407,85 @@ public class homework11 {
         System.out.printf("median          = %f\n", median);
     }
 }  ![Alt homework11](./images/homework11.png)
+
+package homework;
+
+import java.util.Scanner;
+
+public class homework13 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("수식 입력 (종료: q) : ");
+            String inputString = scanner.nextLine().trim();
+
+            if (inputString.equalsIgnoreCase("q")) {
+                break;
+            }
+            if (inputString.isEmpty()) {
+                continue;
+            }
+
+            String[] arrOfStr = inputString.split(" ");
+
+            if (arrOfStr.length == 3) {
+                double num1 = Double.parseDouble(arrOfStr[0]);
+                String op = arrOfStr[1];
+                double num2 = Double.parseDouble(arrOfStr[2]);
+
+                double result = calculate(num1, op, num2);
+                System.out.println("결과: " + formatResult(result));
+
+            } else if (arrOfStr.length == 5) {
+                double num1 = Double.parseDouble(arrOfStr[0]);
+                String op1 = arrOfStr[1];
+                double num2 = Double.parseDouble(arrOfStr[2]);
+                String op2 = arrOfStr[3];
+                double num3 = Double.parseDouble(arrOfStr[4]);
+
+                double result;
+                // 곱셈(#) 및 나눗셈(/) 우선순위 처리
+                if ((op2.equals("#") || op2.equals("/")) && !(op1.equals("#") || op1.equals("/"))) {
+                    double temp = calculate(num2, op2, num3);
+                    result = calculate(num1, op1, temp);
+                } else {
+                    double temp = calculate(num1, op1, num2);
+                    result = calculate(temp, op2, num3);
+                }
+                System.out.println("결과: " + formatResult(result));
+
+            } else {
+                System.out.println("잘못된 입력 형식입니다. (예: 2 + 3 또는 2 + 4 # 7)");
+            }
+            System.out.println();
+        }
+
+        scanner.close();
+    }
+
+    public static double calculate(double a, String op, double b) {
+        if (op.equals("+")) {
+            return a + b;
+        } else if (op.equals("-")) {
+            return a - b;
+        } else if (op.equals("#")) {
+            return a * b;
+        } else if (op.equals("/")) {
+            if (b == 0) {
+                System.out.println("0으로 나눌 수 없습니다.");
+                return 0;
+            }
+            return a / b;
+        }
+        return 0;
+    }
+
+    public static String formatResult(double val) {
+        if (val == (long) val) {
+            return String.format("%d", (long) val);
+        } else {
+            return String.format("%.4f", val);
+        }
+    }
+} ![Alt homework11](./images/homework13.png)
