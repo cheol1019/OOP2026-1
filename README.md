@@ -288,3 +288,57 @@ public class homework8 {
         }
     }
 } ![Alt homework11](./images/homework8.png)
+
+package homework;
+
+public class homework10 {
+    public static void main(String[] args) {
+        int array_count, max_value, bin_size, display_scale, hist_size;
+
+        if (args.length == 4) {
+            array_count = Integer.parseInt(args[0]);
+            max_value = Integer.parseInt(args[1]);
+            bin_size = Integer.parseInt(args[2]);
+            display_scale = Integer.parseInt(args[3]);
+        } else {
+            // 인자를 넣지 않고 그냥 실행했을 때 사용할 기본값
+            array_count = 100;
+            max_value = 100;
+            bin_size = 10;
+            display_scale = 1;
+        }
+
+        hist_size = max_value / bin_size;
+
+        int[] arr = new int[array_count];
+        int[] hist = new int[hist_size];
+        for (int i = 0; i < array_count; i++) {
+            arr[i] = (int) (Math.random() * max_value);
+        }
+        for (int i = 0; i < array_count; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+
+        for (int i = 0; i < array_count; i++) {
+            hist[arr[i] / bin_size]++;
+        }
+        for (int i = 0; i < hist_size; i++) {
+            System.out.print(hist[i] + " ");
+        }
+        System.out.println();
+
+        System.out.println();
+        for (int i = 0; i < hist_size; i++) {
+            int start = i * bin_size;
+            int end = start + bin_size - 1;
+            System.out.print(start + "~" + end + "\t\t");
+
+            int count = hist[i] / display_scale;
+            for (int k = 0; k < count; k++) {
+                System.out.print("#");
+            }
+            System.out.println();
+        }
+    }
+} ![Alt homework11](./images/homework10.png)
